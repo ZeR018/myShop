@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* background: url(./assets/images/background.jpg) center;
+  -webkit-background-size: cover;
+  background-size: cover; */
+
+  background-color: #5fcbfa;
 }
 
 code {
