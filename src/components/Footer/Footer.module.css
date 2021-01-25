@@ -1,0 +1,12 @@
+
+.Footer {
+	position: absolute;
+	bottom: 0;
+	max-width: 100%;
+}
+
+.wrapper{
+	display: block;
+	position: relative;
+	padding: 20px 0;
+}

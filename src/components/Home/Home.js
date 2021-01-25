@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './Home.module.css';
+import Shop from '../Shop';
 
-const Home = () => {
+const Home = (props) => {
+	const { products } = props;
 	return (
 		<div className={styles.Home}>
-			<p>Home</p>
+			<Shop products={products} />
 		</div>
 	);
 };

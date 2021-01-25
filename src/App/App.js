@@ -1,10 +1,11 @@
 import styles from './App.module.css';
 import Header from '../components/Header';
-import Shop from '../components/Shop';
-import Footer from '../components/Footer';
-import store from '../store/store';
-import { useEffect, useState } from 'react';
+import Home from '../components/Home';
 import Cart from '../components/Cart';
+import Footer from '../components/Footer';
+
+import { useEffect, useState } from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
 const dbLink = 'http://localhost:3000/db.json';
 
@@ -16,20 +17,17 @@ const App = () => {
 			.then((response) => response.json())
 			.then((json) => setProduct(json.products));
 	}, []);
-	console.log(products);
 	return (
 		<div className={styles.App}>
 			<Header />
-			<Shop />
+
+			<div>
+				<Route path='/home' render={() => <Home products={products} />} />
+				<Route path='/cart' render={() => <Cart />} />
+				<Redirect from='/' to='/home' />
+			</div>
+
 			<Footer />
-			<Cart />
-			{products.map((item) => (
-				<div className={styles.products}>
-					<img src={item.photo} />
-					<p>{item.name}</p>
-					{item.cost}
-				</div>
-			))}
 		</div>
 	);
 };

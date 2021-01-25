@@ -17,19 +17,3 @@
 	padding: 0 15px;
 	border-radius: 10px;
 }
-
-.products {
-	width: 150px;
-	height: 250px;
-	border: 1px solid black;
-	border-radius: 30px;
-	position: relative;
-	margin: 5px;
-	display: inline-block;
-	vertical-align: top;
-}
-
-.products img {
-	max-width: 100px;
-	margin: 0 25px;
-}
