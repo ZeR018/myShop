@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Home from '../components/Home';
 import Cart from '../components/Cart';
 import Footer from '../components/Footer';
+import axios from 'axios';
 
 import { useEffect, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
@@ -13,9 +14,7 @@ const App = () => {
 	const [products, setProduct] = useState([]);
 
 	useEffect(() => {
-		fetch(dbLink)
-			.then((response) => response.json())
-			.then((json) => setProduct(json.products));
+		axios.get(dbLink).then(({ data }) => setProduct(data.products));
 	}, []);
 	return (
 		<div className={styles.App}>
