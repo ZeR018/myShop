@@ -1,4 +1,5 @@
 import styles from './Shop.module.css';
+import Product from '../Product/Product';
 
 const Shop = (props) => {
 	const { products } = props;
@@ -7,10 +8,8 @@ const Shop = (props) => {
 			Shop
 			<div className={styles.content}>
 				{products.map((item) => (
-					<div className={styles.products}>
-						<img src={item.photo} />
-						<p>{item.name}</p>
-						{item.cost}
+					<div key={item.id}>
+						<Product data={item} />
 					</div>
 				))}
 			</div>
