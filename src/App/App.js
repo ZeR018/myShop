@@ -23,7 +23,7 @@ const App = () => {
 			<div>
 				<Route path='/home' render={() => <Home products={products} />} />
 				<Route path='/cart' render={() => <Cart />} />
-				<Redirect from='/' to='/home' />
+				<Redirect from='/' to='/home/all' />
 			</div>
 
 			<Footer />

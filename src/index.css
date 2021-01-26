@@ -10,10 +10,14 @@ body {
   -webkit-background-size: cover;
   background-size: cover; */
 
-  background-color: #5fcbfa;
+  background-color: #97CAEF;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  outline: 0 !important;
 }
