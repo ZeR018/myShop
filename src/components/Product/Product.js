@@ -22,7 +22,7 @@ const Product = ({ photo, cost, name, availableSizes }) => {
 				<div className={styles.sizes}>
 					<h2 className={styles.h2}>Размеры в наличии:</h2>
 					{availableSizes.map((size, index) => (
-						<b key={`${index}_b`}>{size} </b>
+						<b key={`${index}_b`}> {size} </b>
 					))}
 				</div>
 			</div>

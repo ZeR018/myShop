@@ -28,24 +28,27 @@ const Shop = ({ products }) => {
 		}
 	});
 	const [name, setName] = useState('Все');
+	const changeCategoryName = (e) => {
+		setName(e.target.innerText);
+	};
 	//let hats = products.filter((item) => item.category === 'HAT');
 	return (
 		<div className={styles.Shop}>
 			<div className={styles.buttons}>
 				<Link to='/home/all'>
-					<button onClick={(e) => setName(e.target.innerText)}>Все</button>
+					<button onClick={changeCategoryName}>Все</button>
 				</Link>
 				<Link to='/home/jackets'>
-					<button onClick={(e) => setName(e.target.innerText)}>Куртки</button>
+					<button onClick={changeCategoryName}>Куртки</button>
 				</Link>
 				<Link to='/home/hats'>
-					<button onClick={(e) => setName(e.target.innerText)}>Шапки</button>
+					<button onClick={changeCategoryName}>Шапки</button>
 				</Link>
 				<Link to='/home/scarfs'>
-					<button onClick={(e) => setName(e.target.innerText)}>Шарфы</button>
+					<button onClick={changeCategoryName}>Шарфы</button>
 				</Link>
 				<Link to='/home/sweaters'>
-					<button onClick={(e) => setName(e.target.innerText)}>Свитеры</button>
+					<button onClick={changeCategoryName}>Свитеры</button>
 				</Link>
 			</div>
 			<div className={styles.category}>
