@@ -2,13 +2,20 @@ import styles from './Shop.module.css';
 import Category from '../Category';
 import { Route, Link, Redirect } from 'react-router-dom';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-const Shop = ({ products }) => {
+const Shop = () => {
+	const { items } = useSelector(({ products, filters }) => {
+		return {
+			items: products.items,
+		};
+	});
+
 	let hats = [],
 		jackets = [],
 		scarfs = [],
 		sweaters = [];
-	products.forEach((element) => {
+	items.forEach((element) => {
 		switch (element.category) {
 			case 'HAT':
 				hats.splice(1, 0, element);
@@ -35,29 +42,29 @@ const Shop = ({ products }) => {
 	return (
 		<div className={styles.Shop}>
 			<div className={styles.buttons}>
-				<Link to='/home/all'>
+				<Link to='/shop/all'>
 					<button onClick={changeCategoryName}>Все</button>
 				</Link>
-				<Link to='/home/jackets'>
+				<Link to='/shop/jackets'>
 					<button onClick={changeCategoryName}>Куртки</button>
 				</Link>
-				<Link to='/home/hats'>
+				<Link to='/shop/hats'>
 					<button onClick={changeCategoryName}>Шапки</button>
 				</Link>
-				<Link to='/home/scarfs'>
+				<Link to='/shop/scarfs'>
 					<button onClick={changeCategoryName}>Шарфы</button>
 				</Link>
-				<Link to='/home/sweaters'>
+				<Link to='/shop/sweaters'>
 					<button onClick={changeCategoryName}>Свитеры</button>
 				</Link>
 			</div>
 			<div className={styles.category}>
-				<Route path='/home/all' render={() => <Category name={name} products={products} />} />
-				<Route path='/home/jackets' render={() => <Category name={name} products={jackets} />} />
-				<Route path='/home/hats' render={() => <Category name={name} products={hats} />} />
-				<Route path='/home/scarfs' render={() => <Category name={name} products={scarfs} />} />
-				<Route path='/home/sweaters' render={() => <Category name={name} products={sweaters} />} />
-				<Redirect from='/home' to='/home/all' />
+				<Route path='/shop/all' render={() => <Category name={name} products={items} />} />
+				<Route path='/shop/jackets' render={() => <Category name={name} products={jackets} />} />
+				<Route path='/shop/hats' render={() => <Category name={name} products={hats} />} />
+				<Route path='/shop/scarfs' render={() => <Category name={name} products={scarfs} />} />
+				<Route path='/shop/sweaters' render={() => <Category name={name} products={sweaters} />} />
+				<Redirect from='/shop' to='/shop/all' />
 			</div>
 		</div>
 	);
