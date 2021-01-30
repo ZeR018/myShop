@@ -5,11 +5,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const Shop = () => {
-	const { items } = useSelector(({ products, filters }) => {
-		return {
-			items: products.items,
-		};
-	});
+	const items = useSelector(({ products }) => products.items);
 
 	let hats = [],
 		jackets = [],
