@@ -4,6 +4,7 @@
 	flex-wrap: wrap;
 	position: relative;
 	padding-bottom: 50px;
+	justify-content: space-around;
 }
 
 .Category {

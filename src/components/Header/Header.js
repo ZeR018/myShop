@@ -1,11 +1,14 @@
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Header() {
+	const category = useSelector(({ filters }) => filters.category);
 	return (
 		<div className={styles.Header}>
 			<div className={styles.toHome}>
-				<Link to='/shop/all'>
+				<Link to={`/shop/${category.toLowerCase()}`}>
+					{console.log(category.toLowerCase())}
 					<img
 						className={styles.logo}
 						src='https://sun9-76.userapi.com/impf/C0Rcxd2ATvADTsM5mx8QUYAmWRbbwgfjsAvJfw/XXibNEnOrS0.jpg?size=237x74&quality=96&proxy=1&sign=1f3ae9802f9d03f8131d3f986b8e751d&type=album'

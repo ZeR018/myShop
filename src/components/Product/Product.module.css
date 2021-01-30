@@ -18,9 +18,11 @@
 .h1 {
 	font-size: 18px;
 	font-weight: 700;
+	margin: 0;
 }
 
 .h2 {
+	margin: 0;
 	font-size: 15px;
 	color: #999;
 	font-weight: 400;
@@ -69,4 +71,8 @@
 
 .sizes b {
 	font-weight: 500;
+}
+
+.info {
+	padding: 1px;
 }
