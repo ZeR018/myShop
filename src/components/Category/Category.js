@@ -5,6 +5,7 @@ import SortPopup from '../SortPopup';
 
 const Category = ({ name, products }) => {
 	const [visiblePopup, setVisiblePopup] = useState(false);
+	const [value, setValue] = useState('Популярности');
 
 	const changeVisible = () => setVisiblePopup(!visiblePopup);
 	return (
@@ -13,8 +14,8 @@ const Category = ({ name, products }) => {
 				<h1>{name}</h1>
 				<div className={styles.sortBy} onClick={changeVisible}>
 					<b className={styles.b}>Сортировать по: </b>
-					<b className={styles.b2}>Популярности</b>
-					{visiblePopup && <SortPopup setVisiblePopup={setVisiblePopup} />}
+					<b className={styles.b2}>{value}</b>
+					{visiblePopup && <SortPopup setVisiblePopup={setVisiblePopup} setValue={setValue} />}
 				</div>
 			</div>
 			<div className={styles.content}>

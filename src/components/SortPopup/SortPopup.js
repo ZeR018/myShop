@@ -8,6 +8,14 @@ const SortPopup = (props) => {
 		if (!e.path.includes(sortRef.current)) {
 			props.setVisiblePopup(false);
 		}
+		//else никогда не будет, потому что если нажимать не на SortPopup,sortRef===null
+
+		// Неправильный вариант
+		// if (sortRef.current !== null) {
+		// 	props.setVisiblePopup(false);
+		// 	console.log('if');
+		// 	console.log(sortRef.current);
+		// }
 	};
 
 	useEffect(() => {
@@ -17,12 +25,22 @@ const SortPopup = (props) => {
 		};
 	}, []);
 
+	const click = (e) => {
+		console.log(e.target.innerText);
+		props.setValue(e.target.innerText);
+	};
+
 	return (
-		<div ref={sortRef} className={styles.SortPopup}>
-			{console.log(sortRef.current)}
-			<div className={styles.by}>Алфавиту</div>
-			<div className={styles.by}>Цене</div>
-			<div className={styles.by}>Популярности</div>
+		<div className={styles.SortPopup} ref={sortRef}>
+			<div className={styles.by} onClick={click}>
+				Алфавиту
+			</div>
+			<div className={styles.by} onClick={click}>
+				Цене
+			</div>
+			<div className={styles.by} onClick={click}>
+				Популярности
+			</div>
 		</div>
 	);
 };
