@@ -1,15 +1,16 @@
 import styles from './Shop.module.css';
 import Category from '../Category';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategory } from '../../store/actions/filters';
 
 const Shop = () => {
-	const { items, selectedCategory } = useSelector(({ products, filters }) => {
+	const { items, selectedCategory, sortBy } = useSelector(({ products, filters }) => {
 		return {
 			items: products.items,
 			selectedCategory: filters.category,
+			sortBy: filters.sortBy,
 		};
 	});
 	const dispatch = useDispatch();
@@ -45,22 +46,23 @@ const Shop = () => {
 				))}
 			</div>
 			<div className={styles.category}>
-				{selectedCategory === 'ALL' ? (
-					<Route
-						path={`/shop/${selectedCategory.toLowerCase()}`}
-						render={() => <Category name={name} products={items} />}
-					/>
-				) : (
-					<Route
-						path={`/shop/${selectedCategory.toLowerCase()}`}
-						render={() => (
-							<Category
-								name={name}
-								products={items.filter((item) => item.category === selectedCategory)}
-							/>
-						)}
-					/>
-				)}
+				{items &&
+					(selectedCategory === 'ALL' ? (
+						<Route
+							path={`/shop/${selectedCategory.toLowerCase()}`}
+							render={() => <Category name={name} products={items} />}
+						/>
+					) : (
+						<Route
+							path={`/shop/${selectedCategory.toLowerCase()}`}
+							render={() => (
+								<Category
+									name={name}
+									products={items.filter((item) => item.category === selectedCategory)}
+								/>
+							)}
+						/>
+					))}
 			</div>
 		</div>
 	);

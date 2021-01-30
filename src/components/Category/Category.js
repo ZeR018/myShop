@@ -1,22 +1,18 @@
 import styles from './Category.module.css';
 import Product from '../Product/Product';
-import { useState } from 'react';
 import SortPopup from '../SortPopup';
 
+let items = [
+	{ name: 'Названию', type: 0 },
+	{ name: 'Цене', type: 1 },
+	{ name: 'Популярности', type: 2 },
+];
 const Category = ({ name, products }) => {
-	const [visiblePopup, setVisiblePopup] = useState(false);
-	const [value, setValue] = useState('Популярности');
-
-	const changeVisible = () => setVisiblePopup(!visiblePopup);
 	return (
 		<div className={styles.Category}>
 			<div className={styles.category_header}>
 				<h1>{name}</h1>
-				<div className={styles.sortBy} onClick={changeVisible}>
-					<b className={styles.b}>Сортировать по: </b>
-					<b className={styles.b2}>{value}</b>
-					{visiblePopup && <SortPopup setVisiblePopup={setVisiblePopup} setValue={setValue} />}
-				</div>
+				<SortPopup items={items} />
 			</div>
 			<div className={styles.content}>
 				{products.map((item) => (

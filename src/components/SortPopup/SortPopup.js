@@ -1,46 +1,43 @@
 import styles from './SortPopup.module.css';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { setSortBy } from '../../store/actions/filters';
+import { useDispatch, useSelector } from 'react-redux';
 
-const SortPopup = (props) => {
+const SortPopup = ({ items }) => {
+	const [visiblePopup, setVisiblePopup] = useState(false);
+	const changeVisible = () => setVisiblePopup(!visiblePopup);
+
+	const dispatch = useDispatch();
+	const sortBy = useSelector(({ filters }) => filters.sortBy);
+	const click = (item) => {
+		dispatch(setSortBy(item));
+	};
+
 	const sortRef = useRef();
-
 	const handleOutsideClick = (e) => {
 		if (!e.path.includes(sortRef.current)) {
-			props.setVisiblePopup(false);
+			setVisiblePopup(false);
 		}
-		//else никогда не будет, потому что если нажимать не на SortPopup,sortRef===null
-
-		// Неправильный вариант
-		// if (sortRef.current !== null) {
-		// 	props.setVisiblePopup(false);
-		// 	console.log('if');
-		// 	console.log(sortRef.current);
-		// }
 	};
-
 	useEffect(() => {
-		document.body.addEventListener('click', handleOutsideClick);
+		document.addEventListener('click', handleOutsideClick);
 		return () => {
-			document.body.removeEventListener('click', handleOutsideClick);
+			document.removeEventListener('click', handleOutsideClick);
 		};
 	}, []);
-
-	const click = (e) => {
-		console.log(e.target.innerText);
-		props.setValue(e.target.innerText);
-	};
-
 	return (
-		<div className={styles.SortPopup} ref={sortRef}>
-			<div className={styles.by} onClick={click}>
-				Алфавиту
-			</div>
-			<div className={styles.by} onClick={click}>
-				Цене
-			</div>
-			<div className={styles.by} onClick={click}>
-				Популярности
-			</div>
+		<div ref={sortRef} className={styles.sortBy} onClick={changeVisible}>
+			<b className={styles.b}>Сортировать по: </b>
+			<b className={styles.b2}>{sortBy.name}</b>
+			{visiblePopup && (
+				<div className={styles.SortPopup}>
+					{items.map((item) => (
+						<div key={item.name} className={styles.by} onClick={() => click(item)}>
+							{item.name}
+						</div>
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

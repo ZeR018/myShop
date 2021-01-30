@@ -1,6 +1,6 @@
 const initialState = {
 	category: 'ALL',
-	sortBy: 'popular',
+	sortBy: { name: 'Названию', type: 0 },
 	size: 40,
 };
 // sortBy: alphabet, popular, price
