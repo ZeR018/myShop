@@ -7,6 +7,7 @@ const products = [
 		cost: 288,
 		forMen: false,
 		category: 'HAT',
+		rating: 4,
 	},
 	{
 		id: 1,
@@ -16,6 +17,7 @@ const products = [
 		cost: 1425,
 		forMen: true,
 		category: 'HAT',
+		rating: 5,
 	},
 	{
 		id: 2,
@@ -25,6 +27,7 @@ const products = [
 		cost: 1745,
 		forMen: false,
 		category: 'HAT',
+		rating: 3,
 	},
 	{
 		id: 3,
@@ -34,6 +37,7 @@ const products = [
 		cost: 1860,
 		forMen: false,
 		category: 'HAT',
+		rating: 4,
 	},
 	{
 		id: 4,
@@ -43,6 +47,7 @@ const products = [
 		cost: 1476,
 		forMen: false,
 		category: 'HAT',
+		rating: 5,
 	},
 	{
 		id: 5,
@@ -52,6 +57,7 @@ const products = [
 		cost: 1076,
 		forMen: false,
 		category: 'HAT',
+		rating: 3.2,
 	},
 	{
 		id: 6,
@@ -61,6 +67,7 @@ const products = [
 		cost: 5247,
 		forMen: false,
 		category: 'HAT',
+		rating: 3.4,
 	},
 	{
 		id: 7,
@@ -70,6 +77,7 @@ const products = [
 		cost: 1581,
 		forMen: true,
 		category: 'HAT',
+		rating: 4.3,
 	},
 	{
 		id: 8,
@@ -79,6 +87,7 @@ const products = [
 		cost: 1687,
 		forMen: true,
 		category: 'HAT',
+		rating: 4.8,
 	},
 	{
 		id: 9,
@@ -88,6 +97,7 @@ const products = [
 		cost: 1155,
 		forMen: true,
 		category: 'HAT',
+		rating: 4.4,
 	},
 
 	{
@@ -98,6 +108,7 @@ const products = [
 		cost: 6874,
 		forMen: false,
 		category: 'JACKET',
+		rating: 3.9,
 	},
 	{
 		id: 11,
@@ -107,6 +118,7 @@ const products = [
 		cost: 8999,
 		forMen: false,
 		category: 'JACKET',
+		rating: 4.1,
 	},
 	{
 		id: 12,
@@ -116,6 +128,7 @@ const products = [
 		cost: 2771,
 		forMen: true,
 		category: 'JACKET',
+		rating: 4.2,
 	},
 	{
 		id: 13,
@@ -125,6 +138,7 @@ const products = [
 		cost: 1679,
 		forMen: true,
 		category: 'JACKET',
+		rating: 4.6,
 	},
 	{
 		id: 14,
@@ -134,6 +148,7 @@ const products = [
 		cost: 2802,
 		forMen: true,
 		category: 'JACKET',
+		rating: 4.1,
 	},
 	{
 		id: 15,
@@ -143,6 +158,7 @@ const products = [
 		cost: 3659,
 		forMen: true,
 		category: 'JACKET',
+		rating: 4,
 	},
 	{
 		id: 16,
@@ -152,6 +168,7 @@ const products = [
 		cost: 2159,
 		forMen: true,
 		category: 'JACKET',
+		rating: 5,
 	},
 	{
 		id: 17,
@@ -161,6 +178,7 @@ const products = [
 		cost: 12085,
 		forMen: false,
 		category: 'JACKET',
+		rating: 4.7,
 	},
 	{
 		id: 18,
@@ -170,6 +188,7 @@ const products = [
 		cost: 5080,
 		forMen: false,
 		category: 'JACKET',
+		rating: 4.3,
 	},
 	{
 		id: 19,
@@ -179,6 +198,7 @@ const products = [
 		cost: 12941,
 		forMen: false,
 		category: 'JACKET',
+		rating: 5,
 	},
 
 	{
@@ -189,6 +209,7 @@ const products = [
 		cost: 1781,
 		forMen: false,
 		category: 'SWEATER',
+		rating: 4.6,
 	},
 	{
 		id: 21,
@@ -198,6 +219,7 @@ const products = [
 		cost: 1825,
 		forMen: false,
 		category: 'SWEATER',
+		rating: 4.9,
 	},
 	{
 		id: 22,
@@ -207,6 +229,7 @@ const products = [
 		cost: 3514,
 		forMen: false,
 		category: 'SWEATER',
+		rating: 4,
 	},
 	{
 		id: 23,
@@ -216,6 +239,7 @@ const products = [
 		cost: 1577,
 		forMen: false,
 		category: 'SWEATER',
+		rating: 3.5,
 	},
 	{
 		id: 24,
@@ -225,6 +249,7 @@ const products = [
 		cost: 1576,
 		forMen: false,
 		category: 'SWEATER',
+		rating: 5,
 	},
 	{
 		id: 25,
@@ -234,6 +259,7 @@ const products = [
 		cost: 1606,
 		forMen: true,
 		category: 'SWEATER',
+		rating: 4.5,
 	},
 	{
 		id: 26,
@@ -243,6 +269,7 @@ const products = [
 		cost: 3214,
 		forMen: true,
 		category: 'SWEATER',
+		rating: 4.3,
 	},
 	{
 		id: 27,
@@ -252,6 +279,7 @@ const products = [
 		cost: 1096,
 		forMen: true,
 		category: 'SWEATER',
+		rating: 4.2,
 	},
 	{
 		id: 28,
@@ -261,6 +289,7 @@ const products = [
 		cost: 1096,
 		forMen: true,
 		category: 'SWEATER',
+		rating: 3.6,
 	},
 
 	{
@@ -271,6 +300,7 @@ const products = [
 		cost: 314,
 		forMen: false,
 		category: 'SCARF',
+		rating: 4.6,
 	},
 	{
 		id: 30,
@@ -280,6 +310,7 @@ const products = [
 		cost: 314,
 		forMen: false,
 		category: 'SCARF',
+		rating: 5,
 	},
 	{
 		id: 31,
@@ -289,6 +320,7 @@ const products = [
 		cost: 386,
 		forMen: false,
 		category: 'SCARF',
+		rating: 4.4,
 	},
 	{
 		id: 32,
@@ -298,6 +330,7 @@ const products = [
 		cost: 12510,
 		forMen: false,
 		category: 'SCARF',
+		rating: 2.9,
 	},
 	{
 		id: 33,
@@ -307,6 +340,7 @@ const products = [
 		cost: 565,
 		forMen: true,
 		category: 'SCARF',
+		rating: 4.7,
 	},
 	{
 		id: 34,
@@ -316,6 +350,7 @@ const products = [
 		cost: 1946,
 		forMen: true,
 		category: 'SCARF',
+		rating: 4.3,
 	},
 	{
 		id: 35,
@@ -325,6 +360,7 @@ const products = [
 		cost: 1157,
 		forMen: true,
 		category: 'SCARF',
+		rating: 4.2,
 	},
 	{
 		id: 36,
@@ -334,6 +370,7 @@ const products = [
 		cost: 882,
 		forMen: true,
 		category: 'SCARF',
+		rating: 4.6,
 	},
 ];
 

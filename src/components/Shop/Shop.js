@@ -50,7 +50,7 @@ const Shop = () => {
 					(selectedCategory === 'ALL' ? (
 						<Route
 							path={`/shop/${selectedCategory.toLowerCase()}`}
-							render={() => <Category name={name} products={items} />}
+							render={() => <Category name={name} products={items} sortBy={sortBy} />}
 						/>
 					) : (
 						<Route
@@ -58,6 +58,7 @@ const Shop = () => {
 							render={() => (
 								<Category
 									name={name}
+									sortBy={sortBy}
 									products={items.filter((item) => item.category === selectedCategory)}
 								/>
 							)}

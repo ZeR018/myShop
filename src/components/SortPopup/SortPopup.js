@@ -12,7 +12,6 @@ const SortPopup = ({ items }) => {
 	const click = (item) => {
 		dispatch(setSortBy(item));
 	};
-
 	const sortRef = useRef();
 	const handleOutsideClick = (e) => {
 		if (!e.path.includes(sortRef.current)) {
