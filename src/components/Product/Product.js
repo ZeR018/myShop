@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Product.module.css';
 import PropTypes from 'prop-types';
+import ContentLoader from 'react-content-loader';
 
 const Product = ({ photo, cost, name, availableSizes }) => {
 	return (

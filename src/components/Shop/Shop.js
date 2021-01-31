@@ -6,10 +6,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCategory } from '../../store/actions/filters';
 
 const Shop = () => {
-	const { sortBy, products, selectedCategory, selectedSort, categories } = useSelector(
+	const { sortBy, products, selectedCategory, selectedSort, categories, isLoaded } = useSelector(
 		({ products, filters }) => {
 			return {
 				products: products.items,
+				isLoaded: products.isLoaded,
 				selectedCategory: filters.selectedCategory,
 				selectedSort: filters.selectedSort,
 				categories: filters.categories,

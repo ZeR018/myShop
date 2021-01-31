@@ -2,7 +2,7 @@ import data from '../initState';
 
 const initialState = {
 	items: data,
-	isLoaded: false,
+	isLoaded: true,
 };
 // sortBy: alphabet, popular, price
 
@@ -12,7 +12,7 @@ const products = (state = initialState, action) => {
 			return {
 				...state,
 				items: action.payload,
-				//isLoaded: true,
+				isLoaded: true,
 			};
 
 		default:
