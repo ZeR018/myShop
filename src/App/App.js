@@ -33,9 +33,9 @@ const dbLink = 'http://localhost:3000/db.json';
 // };
 
 class App extends React.Component {
-	componentDidMount() {
-		axios.get(dbLink).then(({ data }) => this.props.setProducts(data.products));
-	}
+	//	componentDidMount() {
+	//		axios.get(dbLink).then(({ data }) => this.props.setProducts(data.products));
+	//	}
 	render() {
 		return (
 			<div className={styles.App}>

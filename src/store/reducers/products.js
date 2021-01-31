@@ -1,5 +1,7 @@
+import data from '../initState';
+
 const initialState = {
-	items: [],
+	items: data,
 	isLoaded: false,
 };
 // sortBy: alphabet, popular, price
