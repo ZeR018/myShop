@@ -1,7 +1,19 @@
 const initialState = {
-	category: 'ALL',
-	sortBy: { name: 'Названию', type: 0 },
-	size: 40,
+	selectedCategory: 'ALL',
+	selectedSort: { name: 'Названию', type: 0 },
+	selectedSize: undefined,
+	categories: [
+		{ name: 'Все', type: 'ALL' },
+		{ name: 'Куртки', type: 'JACKET' },
+		{ name: 'Шапки', type: 'HAT' },
+		{ name: 'Шарфы', type: 'SCARF' },
+		{ name: 'Свитеры', type: 'SWEATER' },
+	],
+	sortBy: [
+		{ name: 'Названию', type: 0 },
+		{ name: 'Цене', type: 1 },
+		{ name: 'Популярности', type: 2 },
+	],
 };
 // sortBy: alphabet, popular, price
 
@@ -10,13 +22,13 @@ const filters = (state = initialState, action) => {
 		case 'SET_SORT_BY':
 			return {
 				...state,
-				sortBy: action.payload,
+				selectedSort: action.payload,
 			};
 
 		case 'SET_CATEGORY':
 			return {
 				...state,
-				category: action.payload,
+				selectedCategory: action.payload,
 			};
 		default:
 			return state;

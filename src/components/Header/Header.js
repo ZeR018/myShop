@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Header() {
-	const category = useSelector(({ filters }) => filters.category);
+	const category = useSelector(({ filters }) => filters.selectedCategory);
 	return (
 		<div className={styles.Header}>
 			<div className={styles.toHome}>

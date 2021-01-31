@@ -6,22 +6,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCategory } from '../../store/actions/filters';
 
 const Shop = () => {
-	const { items, selectedCategory, sortBy } = useSelector(({ products, filters }) => {
-		return {
-			items: products.items,
-			selectedCategory: filters.category,
-			sortBy: filters.sortBy,
-		};
-	});
+	const { sortBy, products, selectedCategory, selectedSort, categories } = useSelector(
+		({ products, filters }) => {
+			return {
+				products: products.items,
+				selectedCategory: filters.selectedCategory,
+				selectedSort: filters.selectedSort,
+				categories: filters.categories,
+				sortBy: filters.sortBy,
+			};
+		},
+	);
 	const dispatch = useDispatch();
-
-	let categories = [
-		{ name: 'Все', type: 'ALL' },
-		{ name: 'Куртки', type: 'JACKET' },
-		{ name: 'Шапки', type: 'HAT' },
-		{ name: 'Шарфы', type: 'SCARF' },
-		{ name: 'Свитеры', type: 'SWEATER' },
-	];
 
 	const [name, setName] = useState('Все');
 	const changeCategoryName = (e) => {
@@ -46,20 +42,28 @@ const Shop = () => {
 				))}
 			</div>
 			<div className={styles.category}>
-				{items &&
+				{products &&
 					(selectedCategory === 'ALL' ? (
 						<Route
 							path={`/shop/${selectedCategory.toLowerCase()}`}
-							render={() => <Category name={name} products={items} sortBy={sortBy} />}
+							render={() => (
+								<Category
+									sortBy={sortBy}
+									name={name}
+									products={products}
+									selectedSort={selectedSort}
+								/>
+							)}
 						/>
 					) : (
 						<Route
 							path={`/shop/${selectedCategory.toLowerCase()}`}
 							render={() => (
 								<Category
-									name={name}
 									sortBy={sortBy}
-									products={items.filter((item) => item.category === selectedCategory)}
+									name={name}
+									selectedSort={selectedSort}
+									products={products.filter((item) => item.category === selectedCategory)}
 								/>
 							)}
 						/>

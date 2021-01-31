@@ -8,7 +8,7 @@ const SortPopup = ({ items }) => {
 	const changeVisible = () => setVisiblePopup(!visiblePopup);
 
 	const dispatch = useDispatch();
-	const sortBy = useSelector(({ filters }) => filters.sortBy);
+	const selectedSort = useSelector(({ filters }) => filters.selectedSort);
 	const click = (item) => {
 		dispatch(setSortBy(item));
 	};
@@ -27,7 +27,7 @@ const SortPopup = ({ items }) => {
 	return (
 		<div ref={sortRef} className={styles.sortBy} onClick={changeVisible}>
 			<b className={styles.b}>Сортировать по: </b>
-			<b className={styles.b2}>{sortBy.name}</b>
+			<b className={styles.b2}>{selectedSort.name}</b>
 			{visiblePopup && (
 				<div className={styles.SortPopup}>
 					{items.map((item) => (
