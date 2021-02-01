@@ -28,6 +28,15 @@ const ProductBlock = ({ id, photo, cost, name, availableSizes, onClickAddProduct
 		onClickAddProduct({ selectedSize: e.target.innerText, id, photo, cost, name });
 		setIsOpen(false);
 	};
+
+	const onAddProduct = () => {
+		if (!selectedSize && availableSizes.length !== 0) {
+			setIsOpen(true);
+		} else {
+			onClickAddProduct({ selectedSize, id, photo, cost, name });
+			selectedSize = undefined;
+		}
+	};
 	return (
 		<div className={styles.Product}>
 			<div className={styles.photo}>
@@ -42,17 +51,7 @@ const ProductBlock = ({ id, photo, cost, name, availableSizes, onClickAddProduct
 					<h2 className={styles.h2}>{name}</h2>
 				</div>
 				<div>
-					<button
-						onClick={() => {
-							if (!selectedSize) {
-								setIsOpen(true);
-							} else {
-								onClickAddProduct({ selectedSize, id, photo, cost, name });
-								selectedSize = undefined;
-							}
-						}}
-						className={styles.button}
-					>
+					<button onClick={onAddProduct} className={styles.button}>
 						В корзину
 					</button>
 					<Modal

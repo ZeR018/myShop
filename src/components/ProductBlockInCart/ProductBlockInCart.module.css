@@ -1,0 +1,153 @@
+
+.cartItem_container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 800px;
+	margin: 30px auto;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #F4F4F4;
+}
+
+.img img {
+	max-width: 80px;
+	max-height: 120px;
+}
+
+.img {
+	display: inline;
+}
+
+.info {
+	display: inline;
+	margin-left: 10px;
+}
+
+.info h2 {
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 27px;
+	color: #000000;
+}
+
+.info h3 {
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 22px;
+	color: #8D8D8D;
+}
+
+.part1 {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.part2 {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+
+
+.price {
+	margin: 0 93px;
+}
+
+.quantity_inner * {
+	box-sizing: border-box;
+}
+
+.quantity_inner {
+	display: inline-flex;
+	border-radius: 26px;
+	border: 4px solid #337AB7;
+}
+
+.quantity_inner .bt_minus,
+.quantity_inner .bt_plus,
+.quantity_inner .quantity {
+	height: 35px;
+	width: 35px;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	background: transparent;
+	cursor: pointer;
+	outline: 0;
+}
+
+.quantity_inner .quantity {
+	width: 50px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #000;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.quantity_inner .bt_minus svg,
+.quantity_inner .bt_plus svg {
+	stroke: #337AB7;
+	stroke-width: 4;
+	transition: 0.5s;
+	margin: 10px;
+}
+
+.quantity_inner .bt_minus:hover svg,
+.quantity_inner .bt_plus:hover svg {
+	stroke: #000;
+}
+
+.price span {
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 27px;
+}
+
+.cl_btn {
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	cursor: pointer;
+}
+
+.cl_btn:before {
+	content: '+';
+	color: #337AB7;
+	position: absolute;
+	z-index: 2;
+	transform: rotate(45deg);
+	font-size: 50px;
+	line-height: 1;
+	top: -8px;
+	left: 6px;
+	transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+}
+
+.cl_btn:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	background: #337AB7;
+	z-index: 1;
+	transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+	transform: scale(0.01);
+}
+
+.cl_btn:hover:after {
+	transform: scale(1);
+}
+
+.cl_btn:hover:before {
+	transform: scale(0.8) rotate(45deg);
+	color: #fff;
+}

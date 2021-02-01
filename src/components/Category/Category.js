@@ -2,6 +2,7 @@ import styles from './Category.module.css';
 import ProductBlock from '../ProductBlock';
 import SortPopup from '../SortPopup';
 import { useDispatch } from 'react-redux';
+import { addProductToCart } from '../../store/actions/cart';
 
 const Category = ({ sortBy, categoryName, products, selectedSort }) => {
 	//Sort
@@ -37,7 +38,7 @@ const Category = ({ sortBy, categoryName, products, selectedSort }) => {
 
 	const dispatch = useDispatch();
 	const onClickAddProduct = (obj) => {
-		console.log(obj);
+		dispatch(addProductToCart(obj));
 	};
 
 	return (
