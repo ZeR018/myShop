@@ -1,9 +1,8 @@
 import React from 'react';
-import styles from './Product.module.css';
+import styles from './ProductBlock.module.css';
 import PropTypes from 'prop-types';
-import ContentLoader from 'react-content-loader';
 
-const Product = ({ photo, cost, name, availableSizes }) => {
+const ProductBlock = ({ photo, cost, name, availableSizes }) => {
 	return (
 		<div className={styles.Product}>
 			<div className={styles.photo}>
@@ -31,11 +30,11 @@ const Product = ({ photo, cost, name, availableSizes }) => {
 	);
 };
 
-Product.propTypes = {
+ProductBlock.propTypes = {
 	name: PropTypes.string.isRequired,
 	cost: PropTypes.number.isRequired,
 	photo: PropTypes.string.isRequired,
 	availableSizes: PropTypes.array,
 };
 
-export default Product;
+export default ProductBlock;

@@ -1,5 +1,5 @@
 import styles from './Category.module.css';
-import Product from '../Product/Product';
+import ProductBlock from '../ProductBlock';
 import SortPopup from '../SortPopup';
 
 const Category = ({ sortBy, name, products, selectedSort }) => {
@@ -41,7 +41,7 @@ const Category = ({ sortBy, name, products, selectedSort }) => {
 			<div className={styles.content}>
 				{products.map((item) => (
 					<div key={item.id}>
-						<Product {...item} />
+						<ProductBlock {...item} />
 					</div>
 				))}
 			</div>

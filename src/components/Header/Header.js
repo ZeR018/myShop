@@ -24,6 +24,7 @@ function Header() {
 			<div className={styles.toCart}>
 				<Link to='/cart'>
 					<button className={styles.button}>
+						<b className={styles.b1}> {totalPrice} ₽</b>
 						<svg
 							width='18'
 							height='18'
@@ -53,7 +54,6 @@ function Header() {
 								strokeLinejoin='round'
 							/>
 						</svg>
-						<b className={styles.b1}> {totalPrice} </b>
 						<b className={styles.b2}> {totalCount}</b>
 					</button>
 				</Link>
