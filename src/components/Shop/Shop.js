@@ -19,14 +19,13 @@ const Shop = () => {
 		},
 	);
 	const cartItems = useSelector(({ cart }) => cart.items);
-	console.log(cartItems);
+	//console.log(cartItems);
 	const dispatch = useDispatch();
 
 	const [name, setName] = useState('Все');
 	const changeCategoryName = (e) => {
 		setName(e.target.innerText);
 	};
-	//let hats = products.filter((item) => item.category === 'HAT');
 
 	return (
 		<div className={styles.Shop}>
