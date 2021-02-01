@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Header() {
-	const category = useSelector(({ filters }) => filters.selectedCategory);
+	const { category, totalPrice, totalCount } = useSelector(({ filters, cart }) => {
+		return {
+			category: filters.selectedCategory,
+			totalPrice: cart.totalPrice,
+			totalCount: cart.totalCount,
+		};
+	});
 	return (
 		<div className={styles.Header}>
 			<div className={styles.toHome}>
@@ -47,7 +53,8 @@ function Header() {
 								strokeLinejoin='round'
 							/>
 						</svg>
-						<b> 520</b>
+						<b className={styles.b1}> {totalPrice} </b>
+						<b className={styles.b2}> {totalCount}</b>
 					</button>
 				</Link>
 			</div>
