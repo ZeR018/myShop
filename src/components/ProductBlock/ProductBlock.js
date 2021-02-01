@@ -1,8 +1,33 @@
 import React from 'react';
 import styles from './ProductBlock.module.css';
 import PropTypes from 'prop-types';
+import Modal from 'react-modal';
 
-const ProductBlock = ({ photo, cost, name, availableSizes }) => {
+const customStyles = {
+	content: {
+		top: '50%',
+		left: '50%',
+		right: 'auto',
+		bottom: 'auto',
+		marginRight: '-50%',
+		transform: 'translate(-50%, -50%)',
+		width: '400px',
+		height: '250px',
+	},
+};
+
+const ProductBlock = ({ id, photo, cost, name, availableSizes, onClickAddProduct }) => {
+	const [modalIsOpen, setIsOpen] = React.useState(false);
+	let selectedSize = undefined;
+
+	function closeModal() {
+		setIsOpen(false);
+	}
+
+	const closeModalWithSelectedSize = (e) => {
+		onClickAddProduct({ selectedSize: e.target.innerText, id, photo, cost, name });
+		setIsOpen(false);
+	};
 	return (
 		<div className={styles.Product}>
 			<div className={styles.photo}>
@@ -17,12 +42,53 @@ const ProductBlock = ({ photo, cost, name, availableSizes }) => {
 					<h2 className={styles.h2}>{name}</h2>
 				</div>
 				<div>
-					<button className={styles.button}>В корзину</button>
+					<button
+						onClick={() => {
+							if (!selectedSize) {
+								setIsOpen(true);
+							} else {
+								onClickAddProduct({ selectedSize, id, photo, cost, name });
+								selectedSize = undefined;
+							}
+						}}
+						className={styles.button}
+					>
+						В корзину
+					</button>
+					<Modal
+						ariaHideApp={false}
+						isOpen={modalIsOpen}
+						onRequestClose={closeModal}
+						style={customStyles}
+						contentLabel='Example Modal'
+					>
+						<div className={styles.cl_btn_wrapper}>
+							<div onClick={closeModal} className={styles.cl_btn}></div>
+						</div>
+						<h2>Выберите размер</h2>
+						<div className={styles.modal}>
+							{availableSizes.map((item) => (
+								<b
+									onClick={closeModalWithSelectedSize}
+									key={`modal_size_${item}`}
+									className={styles.modal_size}
+								>
+									{item}
+								</b>
+							))}
+						</div>
+					</Modal>
 				</div>
 				<div className={styles.sizes}>
 					<h2 className={styles.h2}>Размеры в наличии:</h2>
 					{availableSizes.map((size, index) => (
-						<b key={`${index}_b`}> {size} </b>
+						<b
+							onClick={(e) => (selectedSize = e.target.outerText)}
+							key={`${index}_b`}
+							className={styles.sizesSelected}
+						>
+							{size}
+						</b>
 					))}
 				</div>
 			</div>
@@ -35,6 +101,7 @@ ProductBlock.propTypes = {
 	cost: PropTypes.number.isRequired,
 	photo: PropTypes.string.isRequired,
 	availableSizes: PropTypes.array,
+	onClickAddProduct: PropTypes.func,
 };
 
 export default ProductBlock;

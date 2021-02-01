@@ -1,8 +1,10 @@
 import styles from './Category.module.css';
 import ProductBlock from '../ProductBlock';
 import SortPopup from '../SortPopup';
+import { useDispatch } from 'react-redux';
 
-const Category = ({ sortBy, name, products, selectedSort }) => {
+const Category = ({ sortBy, categoryName, products, selectedSort }) => {
+	//Sort
 	if (selectedSort.type === 0) {
 		products.sort((a, b) => {
 			return a.name.localeCompare(b.name);
@@ -32,16 +34,22 @@ const Category = ({ sortBy, name, products, selectedSort }) => {
 			}
 		});
 	}
+
+	const dispatch = useDispatch();
+	const onClickAddProduct = (obj) => {
+		console.log(obj);
+	};
+
 	return (
 		<div className={styles.Category}>
 			<div className={styles.category_header}>
-				<h1>{name}</h1>
+				<h1>{categoryName}</h1>
 				<SortPopup items={sortBy} />
 			</div>
 			<div className={styles.content}>
 				{products.map((item) => (
 					<div key={item.id}>
-						<ProductBlock {...item} />
+						<ProductBlock {...item} onClickAddProduct={onClickAddProduct} />
 					</div>
 				))}
 			</div>

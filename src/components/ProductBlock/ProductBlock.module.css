@@ -76,3 +76,82 @@
 .info {
 	padding: 1px;
 }
+
+.cl_btn_wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 40px 20px 20px;
+}
+
+.cl_btn {
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	cursor: pointer;
+}
+
+.cl_btn:before {
+	content: '+';
+	color: #337AB7;
+	position: absolute;
+	z-index: 2;
+	transform: rotate(45deg);
+	font-size: 50px;
+	line-height: 1;
+	top: -8px;
+	left: 6px;
+	transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+}
+
+.cl_btn:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	background: #337AB7;
+	z-index: 1;
+	transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+	transform: scale(0.01);
+}
+
+.cl_btn:hover:after {
+	transform: scale(1);
+}
+
+.cl_btn:hover:before {
+	transform: scale(0.8) rotate(45deg);
+	color: #fff;
+}
+
+.modal_size{
+	margin: 15px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.modal_size:hover {
+	text-decoration: underline;
+}
+
+.modal {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.sizesSelected {
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.sizesSelected:hover {
+	text-decoration: underline;
+}
+
