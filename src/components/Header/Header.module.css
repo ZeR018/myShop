@@ -9,10 +9,6 @@
 }
 
 .logo {
-
-}
-
-.logo {
 	color: #000;
 	display: flex;
 }
@@ -50,6 +46,13 @@
 
 .toHome {
 	margin: 30px 0;
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .button {
