@@ -1,21 +1,19 @@
 import styles from './Shop.module.css';
 import Category from '../../components/Category';
 import { Route, Link, Redirect, Switch } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import React from 'react';
 
 const Shop = () => {
-	const { sortBy, products, selectedSort, categories, isLoaded } = useSelector(
-		({ products, filters }) => {
-			return {
-				products: products.items,
-				isLoaded: products.isLoaded,
-				selectedSort: filters.selectedSort,
-				categories: filters.categories,
-				sortBy: filters.sortBy,
-			};
-		},
-	);
+	const { sortBy, products, selectedSort, categories } = useSelector(({ products, filters }) => {
+		return {
+			products: products.items,
+			isLoaded: products.isLoaded,
+			selectedSort: filters.selectedSort,
+			categories: filters.categories,
+			sortBy: filters.sortBy,
+		};
+	});
 	return (
 		<div className={styles.Shop}>
 			<div className={styles.buttons}>

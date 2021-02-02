@@ -2,8 +2,9 @@ import React from 'react';
 import styles from './Cart.module.css';
 import ProductBlockInCart from '../../components/ProductBlockInCart';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearCart, deleteItemFromCart } from '../../store/actions/cart';
+import { clearCart, deleteItemFromCart, makeAPurchase } from '../../store/actions/cart';
 import { Link } from 'react-router-dom';
+
 import emptyCart from '../../assets/images/empty_cart.png';
 
 const Cart = () => {
@@ -16,6 +17,14 @@ const Cart = () => {
 	};
 	const deleteItem = (number) => {
 		dispatch(deleteItemFromCart(number));
+	};
+
+	const purchase = () => {
+		console.log('Ваши покупки:', items);
+		console.log('Их стоимость:', totalPrice);
+		alert('Спасибо за покупку');
+		dispatch(makeAPurchase());
+		dispatch(clearCart());
 	};
 	return (
 		<div className={styles.cart}>
@@ -124,14 +133,18 @@ const Cart = () => {
 									<button className={styles.back}>Вернуться назад</button>
 								</Link>
 
-								<button className={styles.pay}>Оплатить сейчас</button>
+								<Link to='/shop/all'>
+									<button onClick={purchase} className={styles.pay}>
+										Оплатить сейчас
+									</button>
+								</Link>
 							</div>
 						</div>
 					</div>
 				) : (
 					<div className={styles.emptyCart}>
 						<h2>
-							Корзина пустая <icon>😕</icon>
+							Корзина пустая <i>😕</i>
 						</h2>
 						<p>
 							Вероятней всего, вы ещё ничего не выбрали.

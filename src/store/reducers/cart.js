@@ -31,6 +31,10 @@ const cart = (state = initialState, action) => {
 				totalCount: state.totalCount - 1,
 				totalPrice: state.totalPrice - deleteItem.cost,
 			};
+
+		case 'PURCHASE':
+			/* Some logic */
+			return state;
 		default:
 			return state;
 	}

@@ -21,6 +21,8 @@ const Category = ({ sortBy, categoryName, products, selectedSort }) => {
 			}
 			if (a.cost < b.cost) {
 				return 0;
+			} else {
+				return undefined;
 			}
 		});
 	} else if (selectedSort.type === 2) {
@@ -33,6 +35,8 @@ const Category = ({ sortBy, categoryName, products, selectedSort }) => {
 			}
 			if (a.rating < b.rating) {
 				return 0;
+			} else {
+				return undefined;
 			}
 		});
 	}

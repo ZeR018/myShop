@@ -7,11 +7,11 @@ const ProductBlockInCart = ({ photo, cost, name, selectedSize, number, deleteIte
 		<div className={styles.cartItem_container}>
 			<div className={styles.part1}>
 				<div className={styles.img}>
-					<img src={photo} />
+					<img src={photo} alt={name} />
 				</div>
 				<div className={styles.info}>
 					<h2>{name}</h2>
-					<h3>{selectedSize}</h3>
+					<h3>Размер {selectedSize}</h3>
 				</div>
 			</div>
 			<div className={styles.part2}>
@@ -32,18 +32,3 @@ ProductBlockInCart.propTypes = {
 };
 
 export default ProductBlockInCart;
-
-// <div className={styles.quantity_inner}>
-// 	<button className={styles.bt_minus}>
-// 		<svg viewBox='0 0 24 24'>
-// 			<line x1='5' y1='12' x2='19' y2='12'></line>
-// 		</svg>
-// 	</button>
-// 	<input type='text' value='1' size='2' className={styles.quantity} data-max-count='20' />
-// 	<button className={styles.bt_plus}>
-// 		<svg viewBox='0 0 24 24'>
-// 			<line x1='12' y1='5' x2='12' y2='19'></line>
-// 			<line x1='5' y1='12' x2='19' y2='12'></line>
-// 		</svg>
-// 	</button>
-// </div>;

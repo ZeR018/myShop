@@ -4,13 +4,13 @@ import Shop from '../pages/Shop';
 import { connect } from 'react-redux';
 import Cart from '../pages/Cart';
 import Footer from '../components/Footer';
-import axios from 'axios';
+//import axios from 'axios';
 import setProducts from '../store/actions/products';
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 // http://localhost:3000/db.json
-const dbLink = 'http://localhost:3000/db.json';
+//const dbLink = 'http://localhost:3000/db.json';
 
 class App extends React.Component {
 	// componentDidMount() {
