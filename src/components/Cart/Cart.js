@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './Cart.module.css';
 import ProductBlockInCart from '../ProductBlockInCart';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearCart } from '../../store/actions/cart';
 
 const Cart = () => {
 	const { items, totalPrice, totalCount } = useSelector(({ cart }) => cart);
-	const allItems = [].concat.apply([], Object.values(items));
-	console.log(items);
+	const dispatch = useDispatch();
+	const clear = () => {
+		dispatch(clearCart());
+	};
 	return (
 		<div className={styles.cart}>
 			<div className={styles.container}>
@@ -43,7 +46,7 @@ const Cart = () => {
 						</svg>
 						<b> Корзина</b>
 					</div>
-					<div className={styles.clear}>
+					<div onClick={clear} className={styles.clear}>
 						<svg
 							width='20'
 							height='20'
@@ -85,8 +88,8 @@ const Cart = () => {
 					</div>
 				</div>
 				<div className={styles.productBlocks}>
-					{allItems.map((item) => (
-						<ProductBlockInCart key={`cart_item_${item.id}`} {...item} />
+					{items.map((item, i) => (
+						<ProductBlockInCart key={`cart_item_${item.id}_${i}`} {...item} />
 					))}
 				</div>
 				<div className={styles.cartFooter}>

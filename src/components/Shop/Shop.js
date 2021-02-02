@@ -18,8 +18,8 @@ const Shop = () => {
 			};
 		},
 	);
-	const cartItems = useSelector(({ cart }) => cart.items);
-	//console.log(cartItems);
+	const cart = useSelector(({ cart }) => cart);
+	console.log(cart.items, cart.totalPrice, cart.totalCount);
 	const dispatch = useDispatch();
 
 	const [name, setName] = useState('Все');

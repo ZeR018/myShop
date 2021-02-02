@@ -24,12 +24,12 @@ const ProductBlockInCart = ({ photo, cost, name, selectedSize }) => {
 	);
 };
 
-// ProductBlockInCart.propTypes = {
-// 	name: PropTypes.string.isRequired,
-// 	cost: PropTypes.number.isRequired,
-// 	photo: PropTypes.string.isRequired,
-// 	size: PropTypes.array,
-// };
+ProductBlockInCart.propTypes = {
+	name: PropTypes.string.isRequired,
+	cost: PropTypes.number.isRequired,
+	photo: PropTypes.string.isRequired,
+	size: PropTypes.array,
+};
 
 export default ProductBlockInCart;
 
