@@ -22,11 +22,14 @@ const cart = (state = initialState, action) => {
 			};
 
 		case 'DELETE_ITEM_FROM_CART':
+			const deleteItem = [...state.items][action.payload];
 			let newItems = [...state.items];
 			newItems.splice(action.payload, 1);
 			return {
 				...state,
 				items: newItems,
+				totalCount: state.totalCount - 1,
+				totalPrice: state.totalPrice - deleteItem.cost,
 			};
 		default:
 			return state;

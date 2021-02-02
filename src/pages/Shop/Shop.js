@@ -1,9 +1,7 @@
 import styles from './Shop.module.css';
 import Category from '../../components/Category';
-import { Route, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Route, Link, Redirect, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCategory } from '../../store/actions/filters';
 import React from 'react';
 
 const Shop = () => {
@@ -28,24 +26,27 @@ const Shop = () => {
 				))}
 			</div>
 			<div className={styles.category}>
-				{categories.map((item, index) => (
-					<Route
-						key={`route_${item.name}_${index}`}
-						path={`/shop/${item.type.toLowerCase()}`}
-						render={() => (
-							<Category
-								sortBy={sortBy}
-								categoryName={item.name}
-								selectedSort={selectedSort}
-								products={
-									item.type === 'ALL'
-										? products
-										: products.filter((prod) => prod.category === item.type)
-								}
-							/>
-						)}
-					/>
-				))}
+				<Switch>
+					{categories.map((item, index) => (
+						<Route
+							key={`route_${item.name}_${index}`}
+							path={`/shop/${item.type.toLowerCase()}`}
+							render={() => (
+								<Category
+									sortBy={sortBy}
+									categoryName={item.name}
+									selectedSort={selectedSort}
+									products={
+										item.type === 'ALL'
+											? products
+											: products.filter((prod) => prod.category === item.type)
+									}
+								/>
+							)}
+						/>
+					))}
+					<Redirect from='/shop/' to='/shop/all' />
+				</Switch>
 			</div>
 		</div>
 	);
