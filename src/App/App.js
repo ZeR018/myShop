@@ -1,8 +1,8 @@
 import styles from './App.module.css';
 import Header from '../components/Header';
-import Shop from '../components/Shop';
+import Shop from '../pages/Shop';
 import { connect } from 'react-redux';
-import Cart from '../components/Cart';
+import Cart from '../pages/Cart';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import setProducts from '../store/actions/products';

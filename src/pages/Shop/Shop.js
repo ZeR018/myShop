@@ -1,5 +1,5 @@
 import styles from './Shop.module.css';
-import Category from '../Category';
+import Category from '../../components/Category';
 import { Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,13 +18,13 @@ const Shop = () => {
 			};
 		},
 	);
-	const cart = useSelector(({ cart }) => cart);
-	console.log(cart.items, cart.totalPrice, cart.totalCount);
+	const cartItems = useSelector(({ cart }) => cart.items);
+	console.log(cartItems);
 	const dispatch = useDispatch();
 
-	const [name, setName] = useState('Все');
+	const [categoryName, setCategoryName] = useState('Все');
 	const changeCategoryName = (e) => {
-		setName(e.target.innerText);
+		setCategoryName(e.target.innerText);
 	};
 
 	return (
@@ -51,7 +51,7 @@ const Shop = () => {
 							render={() => (
 								<Category
 									sortBy={sortBy}
-									name={name}
+									categoryName={categoryName}
 									products={products}
 									selectedSort={selectedSort}
 								/>
@@ -63,7 +63,7 @@ const Shop = () => {
 							render={() => (
 								<Category
 									sortBy={sortBy}
-									name={name}
+									categoryName={categoryName}
 									selectedSort={selectedSort}
 									products={products.filter((item) => item.category === selectedCategory)}
 								/>

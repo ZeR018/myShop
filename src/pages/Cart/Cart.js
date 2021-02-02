@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Cart.module.css';
-import ProductBlockInCart from '../ProductBlockInCart';
+import ProductBlockInCart from '../../components/ProductBlockInCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../../store/actions/cart';
 
