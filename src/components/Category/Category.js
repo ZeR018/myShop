@@ -3,6 +3,7 @@ import ProductBlock from '../ProductBlock';
 import SortPopup from '../SortPopup';
 import { useDispatch } from 'react-redux';
 import { addProductToCart } from '../../store/actions/cart';
+import React from 'react';
 
 const Category = ({ sortBy, categoryName, products, selectedSort }) => {
 	//Sort

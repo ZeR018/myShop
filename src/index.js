@@ -5,8 +5,8 @@ import App from './App';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import { HashRouter } from 'react-router-dom';
-
 //BrowserRouter
+
 ReactDOM.render(
 	<React.StrictMode>
 		<HashRouter basename={process.env.PUBLIC_URL}>

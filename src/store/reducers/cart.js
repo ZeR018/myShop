@@ -1,6 +1,3 @@
-//Переделать запись items
-// Массив, в котором только id и размерб после чего генерировать объекты в Cart
-
 const initialState = {
 	items: [],
 	totalPrice: 0,
@@ -18,9 +15,18 @@ const cart = (state = initialState, action) => {
 			};
 		case 'CLEAR_CART':
 			return {
+				...state,
 				items: [],
 				totalPrice: 0,
 				totalCount: 0,
+			};
+
+		case 'DELETE_ITEM_FROM_CART':
+			let newItems = [...state.items];
+			newItems.splice(action.payload, 1);
+			return {
+				...state,
+				items: newItems,
 			};
 		default:
 			return state;

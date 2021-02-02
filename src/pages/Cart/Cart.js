@@ -2,13 +2,17 @@ import React from 'react';
 import styles from './Cart.module.css';
 import ProductBlockInCart from '../../components/ProductBlockInCart';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearCart } from '../../store/actions/cart';
+import { clearCart, deleteItemFromCart } from '../../store/actions/cart';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 	const { items, totalPrice, totalCount } = useSelector(({ cart }) => cart);
 	const dispatch = useDispatch();
 	const clear = () => {
 		dispatch(clearCart());
+	};
+	const deleteItem = (number) => {
+		dispatch(deleteItemFromCart(number));
 	};
 	return (
 		<div className={styles.cart}>
@@ -89,7 +93,12 @@ const Cart = () => {
 				</div>
 				<div className={styles.productBlocks}>
 					{items.map((item, i) => (
-						<ProductBlockInCart key={`cart_item_${item.id}_${i}`} {...item} />
+						<ProductBlockInCart
+							key={`cart_item_${item.id}_${i}`}
+							{...item}
+							number={i}
+							deleteItem={deleteItem}
+						/>
 					))}
 				</div>
 				<div className={styles.cartFooter}>
@@ -106,7 +115,10 @@ const Cart = () => {
 						</div>
 					</div>
 					<div className={styles.part2}>
-						<button className={styles.back}>Вернуться назад</button>
+						<Link to='/shop/all'>
+							<button className={styles.back}>Вернуться назад</button>
+						</Link>
+
 						<button className={styles.pay}>Оплатить сейчас</button>
 					</div>
 				</div>

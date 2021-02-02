@@ -21,8 +21,7 @@
  } 
 
 .name_cart b {
-	font-style: normal;
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 26px;
 	line-height: 39px;
  }
@@ -33,11 +32,14 @@
 	font-size: 16px;
 	line-height: 19px;
 	cursor: pointer;
-
 	color: #B6B6B6;
-
 	display: flex;
 	align-items: center;
+ }
+
+ .clear:hover {
+	 color: #a3a3a3;
+	 font-weight: 600;
  }
 
 .part1 {
@@ -91,6 +93,19 @@
 	border: 1px solid #D3D3D3;
 	color: #CACACA;
 	transition: background-color 0.1s linear;
+	transition: border 0.1s linear;
+	transition: color 0.1s linear;
+}
+
+.part2 .back:hover {
+	background-color: #edebeb;
+	border: 1px solid #9e9b9b;
+	color: #b3b1b1;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+.part2 a {
+	all: unset;
 }
 
 

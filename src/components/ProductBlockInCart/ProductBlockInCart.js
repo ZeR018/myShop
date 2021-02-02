@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProductBlockInCart.module.css';
 import PropTypes from 'prop-types';
 
-const ProductBlockInCart = ({ photo, cost, name, selectedSize }) => {
+const ProductBlockInCart = ({ photo, cost, name, selectedSize, number, deleteItem }) => {
 	return (
 		<div className={styles.cartItem_container}>
 			<div className={styles.part1}>
@@ -18,7 +18,7 @@ const ProductBlockInCart = ({ photo, cost, name, selectedSize }) => {
 				<div className={styles.price}>
 					<span>{cost} ₽</span>
 				</div>
-				<div className={styles.cl_btn}></div>
+				<div className={styles.cl_btn} onClick={() => deleteItem(number)}></div>
 			</div>
 		</div>
 	);

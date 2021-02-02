@@ -4,72 +4,48 @@ import { Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategory } from '../../store/actions/filters';
+import React from 'react';
 
 const Shop = () => {
-	const { sortBy, products, selectedCategory, selectedSort, categories, isLoaded } = useSelector(
+	const { sortBy, products, selectedSort, categories, isLoaded } = useSelector(
 		({ products, filters }) => {
 			return {
 				products: products.items,
 				isLoaded: products.isLoaded,
-				selectedCategory: filters.selectedCategory,
 				selectedSort: filters.selectedSort,
 				categories: filters.categories,
 				sortBy: filters.sortBy,
 			};
 		},
 	);
-	const cartItems = useSelector(({ cart }) => cart.items);
-	console.log(cartItems);
-	const dispatch = useDispatch();
-
-	const [categoryName, setCategoryName] = useState('Все');
-	const changeCategoryName = (e) => {
-		setCategoryName(e.target.innerText);
-	};
-
 	return (
 		<div className={styles.Shop}>
 			<div className={styles.buttons}>
 				{categories.map((item, index) => (
-					<Link key={`${item.name}_${index}`} to={`/shop/${item.type.toLowerCase()}`}>
-						<button
-							onClick={(e) => {
-								dispatch(setCategory(item.type));
-								changeCategoryName(e);
-							}}
-						>
-							{item.name}
-						</button>
+					<Link key={`link_${item.name}_${index}`} to={`/shop/${item.type.toLowerCase()}`}>
+						<button>{item.name}</button>
 					</Link>
 				))}
 			</div>
 			<div className={styles.category}>
-				{products &&
-					(selectedCategory === 'ALL' ? (
-						<Route
-							path={`/shop/${selectedCategory.toLowerCase()}`}
-							render={() => (
-								<Category
-									sortBy={sortBy}
-									categoryName={categoryName}
-									products={products}
-									selectedSort={selectedSort}
-								/>
-							)}
-						/>
-					) : (
-						<Route
-							path={`/shop/${selectedCategory.toLowerCase()}`}
-							render={() => (
-								<Category
-									sortBy={sortBy}
-									categoryName={categoryName}
-									selectedSort={selectedSort}
-									products={products.filter((item) => item.category === selectedCategory)}
-								/>
-							)}
-						/>
-					))}
+				{categories.map((item, index) => (
+					<Route
+						key={`route_${item.name}_${index}`}
+						path={`/shop/${item.type.toLowerCase()}`}
+						render={() => (
+							<Category
+								sortBy={sortBy}
+								categoryName={item.name}
+								selectedSort={selectedSort}
+								products={
+									item.type === 'ALL'
+										? products
+										: products.filter((prod) => prod.category === item.type)
+								}
+							/>
+						)}
+					/>
+				))}
 			</div>
 		</div>
 	);

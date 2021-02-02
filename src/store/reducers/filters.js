@@ -1,5 +1,4 @@
 const initialState = {
-	selectedCategory: 'ALL',
 	selectedSort: { name: 'Названию', type: 0 },
 	selectedSize: undefined,
 	categories: [

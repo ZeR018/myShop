@@ -6,3 +6,8 @@ export const addProductToCart = (productObj) => ({
 export const clearCart = () => ({
 	type: 'CLEAR_CART',
 });
+
+export const deleteItemFromCart = (number) => ({
+	type: 'DELETE_ITEM_FROM_CART',
+	payload: number,
+});
