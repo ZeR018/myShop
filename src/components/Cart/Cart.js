@@ -1,8 +1,12 @@
 import React from 'react';
 import styles from './Cart.module.css';
 import ProductBlockInCart from '../ProductBlockInCart';
+import { useSelector } from 'react-redux';
 
 const Cart = () => {
+	const { items, totalPrice, totalCount } = useSelector(({ cart }) => cart);
+	const allItems = [].concat.apply([], Object.values(items));
+	console.log(items);
 	return (
 		<div className={styles.cart}>
 			<div className={styles.container}>
@@ -80,9 +84,29 @@ const Cart = () => {
 						<span> Очистить корзину</span>
 					</div>
 				</div>
-				<ProductBlockInCart />
-				<ProductBlockInCart />
-				<ProductBlockInCart />
+				<div className={styles.productBlocks}>
+					{allItems.map((item) => (
+						<ProductBlockInCart key={`cart_item_${item.id}`} {...item} />
+					))}
+				</div>
+				<div className={styles.cartFooter}>
+					<div className={styles.part1}>
+						<div className={styles.totalProducts}>
+							<b>
+								Всего товаров: <span>{totalCount} шт. </span>
+							</b>
+						</div>
+						<div className={styles.sum}>
+							<b>
+								Сумма заказа: <span>{totalPrice} р</span>
+							</b>
+						</div>
+					</div>
+					<div className={styles.part2}>
+						<button className={styles.back}>Вернуться назад</button>
+						<button className={styles.pay}>Оплатить сейчас</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

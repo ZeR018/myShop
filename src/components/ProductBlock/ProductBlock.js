@@ -99,7 +99,6 @@ ProductBlock.propTypes = {
 	name: PropTypes.string.isRequired,
 	cost: PropTypes.number.isRequired,
 	photo: PropTypes.string.isRequired,
-	availableSizes: PropTypes.array,
 	onClickAddProduct: PropTypes.func,
 };
 
