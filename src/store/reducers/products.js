@@ -4,7 +4,6 @@ const initialState = {
 	items: data,
 	isLoaded: true,
 };
-// sortBy: alphabet, popular, price
 
 const products = (state = initialState, action) => {
 	switch (action.type) {

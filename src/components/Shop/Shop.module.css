@@ -11,6 +11,7 @@
 	border: none;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 	cursor: pointer;
+	margin-top: 15px;
 
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;

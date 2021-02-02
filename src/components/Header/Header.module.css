@@ -1,8 +1,9 @@
 
 .Header {
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	align-items: center;
 	border-bottom: 1px solid #F7F7F7;
 }

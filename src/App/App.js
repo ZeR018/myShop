@@ -9,6 +9,7 @@ import setProducts from '../store/actions/products';
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
+// /db.json'
 const dbLink = 'http://localhost:3000/db.json';
 
 class App extends React.Component {
@@ -23,7 +24,7 @@ class App extends React.Component {
 				<div>
 					<Route path='/shop' component={Shop} />
 					<Route path='/cart' component={Cart} />
-					<Redirect from='/' to='/shop/all' />
+					<Redirect from='/' exact to='/shop/all' />
 				</div>
 
 				<Footer />
