@@ -14,7 +14,9 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 class App extends React.Component {
 	// componentDidMount() {
-	// 	axios.get(dbLink).then(({ data }) => console.log(data));
+	// 	axios.get('http://localhost:3000/db.json').then(({ data }) => {
+	// 		console.log(data);
+	// 	});
 	// }
 
 	render() {

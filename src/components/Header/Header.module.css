@@ -8,13 +8,48 @@
 	border-bottom: 1px solid #F7F7F7;
 }
 
+.logo {
+
+}
+
+.logo {
+	color: #000;
+	display: flex;
+}
+
+.logo h2 {
+	font-family: Times New Roman;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	margin: 0;
+	color: #000;
+}
+
+
+.logo b{
+	font-family: Times New Roman;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: #7B7B7B;
+}
+
+.logo img {
+	margin: 0 15px;
+}
+
+.toHome a {
+	text-decoration: none;
+}
+
 
 .toCart {
 	margin-top: 20px;
 }
 
 .toHome {
-	margin: 20px 0;
+	margin: 30px 0;
 }
 
 .button {
