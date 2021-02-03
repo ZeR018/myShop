@@ -2,6 +2,7 @@ const initialState = {
 	city: 'Nizhny Novgorod',
 	iconID: 0,
 	weather: {},
+	isLoaded: false,
 
 	suggestions: [
 		{ t: 10, value: 'На улице прохладно, не забудь куртку!' },
@@ -21,6 +22,7 @@ const weather = (state = initialState, action) => {
 				city: action.payload.city,
 				iconID: action.payload.iconID,
 				weather: action.payload.weather,
+				isLoaded: true,
 			};
 		default:
 			return state;

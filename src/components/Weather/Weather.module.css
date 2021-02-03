@@ -1,10 +1,12 @@
 
 .weatherBlock {
 	max-width: 250px;
+}
 
-	border-radius: 10px;
+.loadedWeather {
 	background-color: #ebf1fa;
-	padding: 5px;
+	border-radius: 10px;
+		padding: 5px;
 }
 
 .weather {
