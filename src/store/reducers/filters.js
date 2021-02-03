@@ -14,7 +14,6 @@ const initialState = {
 		{ name: 'Популярности', type: 2 },
 	],
 };
-// sortBy: alphabet, popular, price
 
 const filters = (state = initialState, action) => {
 	switch (action.type) {

@@ -1,6 +1,7 @@
 
 .Header {
 	margin-bottom: 15px;
+	padding-top: 15px;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -11,6 +12,7 @@
 .logo {
 	color: #000;
 	display: flex;
+	padding-right: 120px;
 }
 
 .logo h2 {
@@ -39,14 +41,8 @@
 	text-decoration: none;
 }
 
-
-.toCart {
-	margin-top: 20px;
-}
-
 .toHome {
-	margin: 30px 0;
-	
+	margin-top: 15px;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -56,6 +52,7 @@
 }
 
 .button {
+	margin-right: 15px;
 	background-color: #3e85b8;
 	transition: background-color 0.1s linear;
 

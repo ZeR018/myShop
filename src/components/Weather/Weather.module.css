@@ -1,0 +1,40 @@
+
+.weatherBlock {
+	max-width: 250px;
+
+	border-radius: 10px;
+	background-color: #ebf1fa;
+	padding: 5px;
+}
+
+.weather {
+	display: flex;
+	align-items: center;
+
+	position: relative;
+}
+
+.weather img {
+	position: absolute;
+	left: -20px;
+}
+
+.info{
+	margin-left: 60px;
+}
+
+.info h1{
+	font-size: 16px;
+	margin: 0;
+}
+
+.info h2 {
+	font-size: 13px;
+	margin: 0;
+	font-weight: 700;
+}
+
+.b {
+	font-weight: 500;
+	font-size: 13px;
+}

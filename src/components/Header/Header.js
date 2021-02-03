@@ -2,6 +2,8 @@ import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import Weather from '../Weather';
+
 import logo from '../../assets/images/logo.svg';
 
 function Header() {
@@ -13,10 +15,11 @@ function Header() {
 	});
 	return (
 		<div className={styles.Header}>
+			<Weather />
 			<div className={styles.toHome}>
 				<Link to={'/shop/all'}>
 					<div className={styles.logo}>
-						<img src={logo} />
+						<img src={logo} alt='logo' />
 						<b>
 							<h2>Fast Clothes</h2>
 							<b>Самая теплая одежда</b>
